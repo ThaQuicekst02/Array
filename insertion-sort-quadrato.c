@@ -3,11 +3,11 @@
 
 int main (void){
     int a[DIM];
-    int dimlog, dl, m, j;
+    int dimlog, dl, i;
     // input
     dimlog = 0;
     do{
-    printf("Inserisci un numero intero, 0 chiude tutto dioca");
+    printf("Inserisci un numero intero, 0 chiude tutto dioca\n");
     scanf("%d", &a[dimlog]);
     if (a[dimlog]==0)
         break;
@@ -17,14 +17,17 @@ int main (void){
     //insertion sort
 
         for(dl = 0; dl < dimlog; dl++) {
-        scanf("%d", &m);
-        j = dl;
-        while (j > 0 && m < a[j-1]){
+        int j = dl, m = a[dl];
+        while (j > 0 && m * m < a[j-1] *a[j-1]){
             a[j] = a[j-1];
             j--;
         }
         a[j] = m;
     }
+        //for each (stampa a)
+    for (i = 0; i < dimlog; i++)
+        printf("%d", a[i]);
+    printf("\n");
 
     return 0;
 }
